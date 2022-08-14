@@ -12,7 +12,8 @@ import { AppService } from './app.service';
           cb(null, './upload');
         },
         filename: function (req, file, cb) {
-          cb(null, file.originalname);
+          const typeFile = file.originalname.split('.')
+          cb(null,"test"+"."+typeFile[1]);
         },
       }),
     }),

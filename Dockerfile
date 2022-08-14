@@ -1,11 +1,9 @@
 
 FROM --platform=linux/amd64 node:16-alpine3.15 
 WORKDIR /usr/src/app
-COPY ["package.json",  "./"]
 COPY . .
-RUN npm install -g @nestjs/cli
+RUN npm i @nestjs/cli
 RUN npm install
-CMD ["npm", "run", "start"]
 EXPOSE 80 
 
 # 1. สร้าง dockerfile
@@ -17,3 +15,7 @@ EXPOSE 80
 
 # docker ps 
 # docker ps -a
+# คำสังลบ container
+# docker rm d3007b49ec4b
+# docker rmi image id
+# docker rm $(docker ps -aq)

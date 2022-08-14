@@ -23,6 +23,11 @@ export class AppController {
   @Post('uploads')
   @UseInterceptors(FileInterceptor('image'))
   uploadFile(@UploadedFile() file: Express.Multer.File) {
+    const path = file.destination + '/' + file.filename;
+    const typeFile = file.originalname.split('.')
+
+    console.log(typeFile[1]);
+
     return file;
   }
 
